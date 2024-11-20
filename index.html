@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusTimer - ONEBYTE</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #fff; /* Cambiar el color del texto a blanco */
+            background-color: #000; /* Fondo negro */
+        }
+
+        .barra-negra {
+            background-color: #000;
+            height: 20px;
+        }
+
+        header {
+            background: #000; /* Barra superior de color negro */
+            color: #39FF14; /* Letras de color verde fosforescente */
+            padding: 40px;
+            text-align: center;
+        }
+
+        nav {
+            background: #222; /* Fondo gris oscuro */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: inline-flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #39FF14; /* Letras en verde fosforescente */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: #39FF14; /* Verde fosforescente */
+            border-bottom: 2px solid #39FF14; /* Verde fosforescente */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background: #222; /* Fondo oscuro en lugar de blanco */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin: 20px 0;
+            color: #39FF14; /* Verde fosforescente */
+            font-size: 1.8em;
+            border-bottom: 2px solid #39FF14;
+            padding-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #39FF14; /* Verde fosforescente en el pie de página */
+            color: #000;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .section-content {
+            display: none; /* Ocultar todas las secciones por defecto */
+        }
+
+        .active {
+            display: block; /* Mostrar la sección activa */
+        }
+    </style>
+</head>
+<body>
+    <div class="barra-negra"></div>
+
+    <header>
+        <h1>FocusTimer</h1>
+        <p>Creado por ONEBYTE</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
+            <li><a href="#" onclick="showSection('que-es')">¿Qué es FocusTimer?</a></li>
+            <li><a href="#" onclick="showSection('pomodoro')">Método Pomodoro</a></li>
+            <li><a href="#" onclick="showSection('soporte')">Soporte</a></li>
+            <li><a href="#" onclick="showSection('bibliografia')">Bibliografía</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Página de inicio -->
+        <section id="inicio" class="section-content active">
+            <h2>Bienvenido a FocusTimer</h2>
+            <p>FocusTimer es un temporizador basado en el método Pomodoro, diseñado para ayudarte a estudiar de forma eficiente y maximizar tu productividad.</p>
+            <img src="../img/ONEBYTE.png" alt="Imagen de ONEBYTE" style="width:100%; max-width:400px; margin-top:10px;">
+        </section>
+        
+
+        <!-- Secciones individuales ocultas inicialmente -->
+        <section id="que-es" class="section-content">
+            <h2>¿Qué es FocusTimer?</h2>
+            <p>FocusTimer es un innovador reloj diseñado para ayudarte a aplicar el método de estudio Pomodoro. Estudia de manera eficiente en bloques de 25 minutos, seguidos de un descanso de 5 minutos. Esta técnica te permite mantener la concentración y maximizar tu productividad.</p>
+        </section>
+
+        <section id="pomodoro" class="section-content">
+            <h2>Método Pomodoro</h2>
+            <p>El método Pomodoro es una técnica de gestión del tiempo que se basa en dividir el trabajo en intervalos de 25 minutos, llamados "pomodoros", seguidos de un descanso corto de 5 minutos. Después de completar cuatro pomodoros, se recomienda tomar un descanso más largo de 15-30 minutos para recargar energías.</p>
+            <img src="../img/ONEBYTE.png" alt="Imagen de ONEBYTE" style="width:100%; max-width:400px; margin-top:10px;">
+        </section>
+
+        <section id="soporte" class="section-content">
+            <h2>Soporte</h2>
+            <p>Si tienes preguntas o necesitas ayuda, no dudes en contactarnos.</p>
+            <p><strong>Email:</strong> onebyteoficial@gmail.com</p>
+            <p><strong>Facebook:</strong> FocusTimer</p>
+            <p><strong>Instagram:</strong> FocusTimer.oficial</p>
+        </section>
+
+        <section id="bibliografia" class="section-content">
+            <h2>Bibliografía</h2>
+            <p>Somos un grupo conformado por tres integrantes: Bastidas Valentina, Paiola Mateo y Sobrado Lautaro. Juntos, se nos ocurrió formar un grupo llamado OneByte y crear este nuevo producto llamado FocusTimer.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ONEBYTE. Todos los derechos reservados.</p>
+    </footer>
+
+    <div class="barra-negra"></div>
+
+    <!-- Script para mostrar/ocultar secciones -->
+    <script>
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Mostrar la sección seleccionada
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+        }
+    </script>
+</body>
+</html>
